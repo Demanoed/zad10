@@ -13,8 +13,8 @@ namespace Posledovatelnost
         private static int n;
         private static void CreatePosl()
         {
-            ColorMess.Yellow("\n Введите колличество чисел в последовательности (минимум 2): ");
-            n = Input.Check(2, int.MaxValue);
+            ColorMess.Yellow("\n Введите колличество чисел в последовательности (от 2 до 10): ");
+            n = Input.Check(2, 10);
             Posl = new int[n];
             for(int i = 0; i<n; i++)
             {
@@ -28,11 +28,19 @@ namespace Posledovatelnost
             for (int i = 0; i < n; i++)
                 ColorMess.White(" " + Posl[i]);
         }
+        private static void UpdatePosl()
+        {
+            for(int i = 0; i<n-1; i++)
+                Posl[i] = Posl[i] - Posl[n-1];
+        }
         static void Main()
         {
             CreatePosl();
-            ColorMess.Yellow("\n Ваша новая последовательность выглядит так: ");
-
+            UpdatePosl();
+            Console.Clear();
+            ColorMess.Cyan("\n Ваша новая последовательность выглядит так: ");
+            PrintPosl();
+            Message.GoToBack();
         }
     }
 }
