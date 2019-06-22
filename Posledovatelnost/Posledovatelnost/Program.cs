@@ -23,6 +23,11 @@ namespace Posledovatelnost
                 Posl[i] = Input.Check(int.MinValue, int.MaxValue);
             }
         }
+        private static void PrintPosl()
+        {
+            for (int i = 0; i < n; i++)
+                ColorMess.White(" " + Posl[i]);
+        }
         static void Main()
         {
             CreatePosl();
